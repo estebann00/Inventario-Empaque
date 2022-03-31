@@ -34,15 +34,21 @@
             <label for="exampleFormControlInput1" class="form-label">Destinatario</label>
             <input type="text" class="form-control" name="pro_destinatario" placeholder="Destinario">
         </div>      
-        <div class="mb-2">
-            <label for="FormControlInput1" class="form-label">fecha entrada</label>
-            <input type="date" class="form-control" name="pro_fecha_entrada" value="{{$date}}" placeholder="Remitente">
-        </div>
         <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Observacion</label>
             <textarea type="text" class="form-control" name="pro_observacion" rows="2"></textarea>
         </div>
-        <div class="modal-footer">  
+            <div class="form-group">
+              <select class="form-control" aria-label="Default select example" name="pro_estado">
+                  <option value="1" disabled selected> Seleccionar Estado</option>
+                    @foreach($estado as $estado)
+                    <option value="{{$estado->id}}">
+                    {{ucfirst($estado->est_nombre)}}
+                    </option>
+                    @endforeach
+              </select>
+            </div>
+        <div class="modal-footer">
         <a type="button" href="{{ route('registro.index') }}" class="btn btn-secondary">Regresar</a>
         <button type="submit" class="btn btn-primary">Guardar</button>
         </div>
