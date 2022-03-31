@@ -1,8 +1,17 @@
+<?php
 
+namespace App\Http\Controllers;
+
+use App\Models\producto;
+use App\Models\estado;
+use Carbon\Carbon;
+use Illuminate\Database\RecordsNotFoundException;
+use Illuminate\Http\Request;
+
+class EmpaqueController extends Controller
+{
     public function index(){
-        $productos = producto::where('pro_empaque','pro_estado_llegada','pro_remitente','pro_destinatario',
-        'pro_fecha_entrada','pro_observacion','pro_fecha_salida','pro_estado')
-        ->paginate(3);
+        $productos = producto::all();
 
         return view('home',compact('productos'));
         
